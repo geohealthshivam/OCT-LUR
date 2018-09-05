@@ -1,4 +1,4 @@
-#to find the correlation between the variabels and how to remove them. 
+#To find the correlation between the variabels and how to remove them. 
 cor(monitor_1@data[,14],monitor_1@data[,15:72])    
 
 
@@ -19,7 +19,7 @@ LM_selected <-lm(annual~rdcount_1000+minrdcount_100+minrdcount_500+rdlength_100+
 summary(LM_selected)
 summary(stepAIC(LM_selected))
 
-
+#Predicting values using the selected LUR model
 prediction.LM.muenster<-predict(LM_muenster,newdata=newdat4pred)
 prediciton.df<-data.frame(newdat4pred@coords,prediction.LM.muenster)
 
@@ -36,7 +36,7 @@ plot(major.roads,add=T)
 
 
 
-monitor.raw<-readShapePoints('~/Documents/Data for analysis Muenster/Shape files 32632/SHAPE FILE/Prediction points 1000 /New monitor /new_monitors1')
+monitor.raw<-readShapePoints('~Shape files 32632/SHAPE FILE/Prediction points 1000 /New monitor/new_monitors1')
 projection(monitor.raw) <- CRS("+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs")
 monitor.raw.transform<-spTransform(monitor.raw,"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs" )
 monitor.raw.transform$X<-monitor.raw.transform@coords[,1]
@@ -50,7 +50,7 @@ var_clas<-variog(geo1)
 plot(var1)
 covars
 
-
+#fitting variogram for prediction using kriging 
 ev=eyefit(var1)
 mod_vg=as.vgm.variomodel(ev[[1]])
 dat3=monitor.raw.transform@data
