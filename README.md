@@ -1,7 +1,5 @@
-#ESR08 GEO-C project
-
-## OCT-Scripts for GEO-C project 
-The repository contains the script for developing the LUR model using open data. The LUR scripts used in this project uses the data from open data sources for developing the air pollution LUR estimation.
+## OCT-Scripts for GEO-C
+The repository contains the R scripts for constructing the Land Use Regression (LUR) model by utilizing open data sources. The LUR scripts uses the data from open data for the air pollution LUR estimation.
 
 ## Guidelines
 The guide to using each file in the repository is as follows:
